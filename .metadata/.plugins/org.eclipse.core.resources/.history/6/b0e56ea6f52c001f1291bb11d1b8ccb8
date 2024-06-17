@@ -1,0 +1,7 @@
+package com.example.avaliacao3.controller;
+
+public @interface RequestMapping {
+
+	String value();
+
+}

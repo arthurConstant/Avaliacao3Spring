@@ -1,0 +1,13 @@
+package com.example.avaliacao3.controller;
+
+import java.net.ResponseCache;
+
+import com.example.avaliacao3.model.Cidade;
+
+public interface ResponseAPDU {
+
+	static ResponseCache ok(Cidade save) {
+		return null;
+	}
+
+}

@@ -1,0 +1,8 @@
+src/main/java/com/example/avaliacao3/
+    controller/
+    service/
+    repository/
+    model/
+    exception/
+src/main/resources/
+    application.properties

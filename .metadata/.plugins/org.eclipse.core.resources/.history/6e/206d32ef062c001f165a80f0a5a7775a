@@ -1,0 +1,31 @@
+package com.example.avaliacao3.controller;
+
+import com.example.avaliacao3.model.Cliente;
+import com.example.avaliacao3.service.ClienteService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
+
+import java.net.http.HttpResponse.ResponseInfo;
+import java.util.List;
+
+import javax.smartcardio.ResponseAPDU;
+
+@RestController
+@RequestMapping("/clientes")
+public class ClienteController {
+
+    @com.example.avaliacao3.service.Autowired
+    private ClienteService clienteService;
+
+    @DeleteMapping(value = "")
+    public ResponseAPDU<Cliente> create(@RequestBody Cliente cliente) {
+        return ResponseAPDU.ok(clienteService.save(cliente));
+    }
+
+    @RequestMapping(value = "")
+    public ResponseInfo<List<Cliente>> findAll() {
+        return ResponseAPDU.ok(clienteService.findAll());
+    }
+
+    @GetMapping("/{id}")

@@ -1,0 +1,8 @@
+package com.example.avaliacao3.repository;
+
+import com.example.avaliacao3.model.Cidade;
+
+public interface CidadeRepository extends JpaRepository<Cidade, Long> {
+
+	Cidade save(Cidade cidade);
+}

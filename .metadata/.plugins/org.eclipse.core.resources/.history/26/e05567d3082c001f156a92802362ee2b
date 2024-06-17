@@ -1,0 +1,23 @@
+package com.example.avaliacao3.controller;
+
+import com.example.avaliacao3.model.Cliente;
+import com.example.avaliacao3.service.ClienteService;
+
+@RestController
+@RequestMapping("/clientes")
+public class ClienteController {
+
+    @com.example.avaliacao3.service.Autowired
+    private ClienteService clienteService;
+
+    @DeleteMapping(value = "")
+    public ResponseAPDU create(@RequestBody Cliente cliente) {
+        return ResponseAPDU.ok(clienteService.save(cliente));
+    }
+
+    @RequestMapping(value = "")
+    public ResponseInfo<List<Cliente>> findAll() {
+        return ResponseAPDU.ok(clienteService.findAll());
+    }
+
+    @GetMapping("/{id}")

@@ -1,0 +1,15 @@
+package com.example.avaliacao3.controller;
+
+import java.net.ResponseCache;
+import java.net.http.HttpResponse.ResponseInfo;
+
+import com.example.avaliacao3.model.Cidade;
+
+public interface ResponseAPDU {
+
+	static ResponseCache<Cidade> ok(Cidade save) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

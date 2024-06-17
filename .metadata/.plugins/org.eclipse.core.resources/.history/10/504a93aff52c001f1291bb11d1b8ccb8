@@ -1,0 +1,10 @@
+package com.example.avaliacao3.repository;
+
+import com.example.avaliacao3.model.Cliente;
+
+public interface ClienteRepository extends JpaRepository<Cliente, Long> {
+
+	Cliente save(Cliente cliente);
+
+	Object findById(Long id);
+}

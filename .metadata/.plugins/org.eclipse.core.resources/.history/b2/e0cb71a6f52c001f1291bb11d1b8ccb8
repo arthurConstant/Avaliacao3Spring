@@ -1,0 +1,5 @@
+package com.example.avaliacao3.controller;
+
+public interface ResponseInfo<T> {
+
+}

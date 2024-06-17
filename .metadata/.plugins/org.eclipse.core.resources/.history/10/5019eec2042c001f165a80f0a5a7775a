@@ -1,0 +1,31 @@
+package com.example.avaliacao3.service;
+
+import com.example.avaliacao3.model.Cidade;
+import com.example.avaliacao3.repository.CidadeRepository;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import java.util.List;
+
+@Service
+public class CidadeService {
+
+    @Autowired
+    private CidadeRepository cidadeRepository;
+
+    public Cidade save(Cidade cidade) {
+        return cidadeRepository.save(cidade);
+    }
+
+    public List<Cidade> findAll() {
+        return cidadeRepository.findAll();
+    }
+
+    public Cidade findById(Long id) {
+        return cidadeRepository.findById(id).orElse(null);
+    }
+
+    public void delete(Long id) {
+        cidadeRepository.deleteById(id);
+    }
+}

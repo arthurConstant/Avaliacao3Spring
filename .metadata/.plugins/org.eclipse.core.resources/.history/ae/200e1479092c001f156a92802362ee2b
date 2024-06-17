@@ -1,0 +1,30 @@
+package com.example.avaliacao3.service;
+
+import com.example.avaliacao3.model.Cliente;
+import com.example.avaliacao3.repository.ClienteRepository;
+
+
+import java.util.List;
+
+@Service
+public class ClienteService {
+
+    @Autowired
+    private ClienteRepository clienteRepository;
+
+    public Cliente save(Cliente cliente) {
+        return clienteRepository.save(cliente);
+    }
+
+    public List<Cliente> findAll() {
+        return ((ClienteService) clienteRepository).findAll();
+    }
+
+    public Cliente findById(Long id) {
+        return ((Object) clienteRepository.findById(id)).orElse(null);
+    }
+
+    public void delete(Long id) {
+        ((Object) clienteRepository).deleteById(id);
+    }
+}

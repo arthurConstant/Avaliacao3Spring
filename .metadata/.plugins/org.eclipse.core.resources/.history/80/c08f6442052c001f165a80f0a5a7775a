@@ -1,0 +1,52 @@
+package com.example.avaliacao3.controller;
+
+import com.example.avaliacao3.model.Cidade;
+import com.example.avaliacao3.service.CidadeService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
+
+@RestController
+@RequestMapping("/cidades")
+public class CidadeController {
+
+    @Autowired
+    private CidadeService cidadeService;
+
+    @PostMapping
+    public ResponseEntity<Cidade> create(@RequestBody Cidade cidade) {
+        return ResponseEntity.ok(cidadeService.save(cidade));
+    }
+
+    @GetMapping
+    public ResponseEntity<List<Cidade>> findAll() {
+        return ResponseEntity.ok(cidadeService.findAll());
+    }
+
+    @GetMapping("/{id}")
+    public ResponseEntity<Cidade> findById(@PathVariable Long id) {
+        Cidade cidade = cidadeService.findById(id);
+        if (cidade == null) {
+            return ResponseEntity.notFound().build();
+        }
+        return ResponseEntity.ok(cidade);
+    }
+
+    @PutMapping("/{id}")
+    public ResponseEntity<Cidade> update(@PathVariable Long id, @RequestBody Cidade cidade) {
+        Cidade existingCidade = cidadeService.findById(id);
+        if (existingCidade == null) {
+            return ResponseEntity.notFound().build();
+        }
+        cidade.setId(id);
+        return ResponseEntity.ok(cidadeService.save(cidade));
+    }
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Void> delete(@PathVariable Long id) {
+        cidadeService.delete(id);
+        return ResponseEntity.noContent().build();
+    }
+}
